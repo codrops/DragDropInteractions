@@ -1,0 +1,226 @@
+.container {
+	background: #54525C;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.drag-active .container {
+	-webkit-transform: scale3d(0.9,0.9,1);
+	transform: scale3d(0.9,0.9,1);
+}
+
+.grid {
+	margin: 0 auto;
+	max-width: 50em;
+	padding: 0 1em;
+}
+
+.grid__item {
+	display: inline-block;
+	margin: 0.2em 0.1em;
+	padding-top: 2.25em;
+	width: 5.5em;
+	height: 5.5em;
+	border-radius: 4px;
+	background: #403E45;
+	color: #76737C;
+	text-align: center;
+	font-size: 2em;
+}
+
+.grid__item:hover {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.grid__item:active {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+.is-dragging {
+	background: #4B4952;
+}
+
+.is-active {
+	z-index: 100;
+}
+
+.is-dropped {
+	opacity: 0;
+	-webkit-transform: scale3d(0.7,0.7,1) !important;
+	transform: scale3d(0.7,0.7,1) !important;
+}
+
+.is-complete {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s !important;
+	transition: opacity 0.3s, transform 0.3s !important;
+	-webkit-transform: scale3d(1,1,1) !important;
+	transform: scale3d(1,1,1) !important;
+}
+
+.animate {
+	-webkit-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+.drop-area {
+	position: fixed;
+	top: 0;
+	left: 100%;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	background: #f0f0f0;
+	text-align: center;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.drop-area.show {
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+}
+
+.drop-area > div {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+}
+
+.drop-area__item {
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 50%;
+	border: 10px solid transparent;
+}
+
+.drop-area__item > div {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	background: rgba(0,0,0,0.1);
+	-webkit-transition: -webkit-transform 0.3s, background 0.3s;
+	transition: transform 0.3s, background 0.3s;
+	-webkit-transform: scale3d(1,1,1); /* special treatment for Safari */
+	transform: scale3d(1,1,1);
+}
+
+.drop-area__item.highlight > div {
+	background: rgba(0,0,0,0.2);
+	-webkit-transform: scale3d(0.95,0.95,1);
+	transform: scale3d(0.95,0.95,1);
+}
+
+.drop-area__item > div::before,
+.drop-area__item > div::after {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -0.5em;
+	width: 100%;
+	color: rgba(0,0,0,0.4);
+	font-size: 2.5em;
+	font-family: FontAwesome;
+	pointer-events: none;
+}
+
+.drop-area__item > div::before {
+	content: '\f067';
+}
+
+.drop-feedback.drop-area__item > div::before {
+	opacity: 0;
+	-webkit-transform: scale3d(0,0,1);
+	transform: scale3d(0,0,1);
+}
+
+.drop-area__item > div::after {
+	margin-top: -0.5em;
+	color: rgba(205,180,117,0.6);
+	content: '\f00c';
+	font-size: 3em;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: scale3d(2,2,1);
+	transform: scale3d(2,2,1);
+}
+
+.drop-feedback.drop-area__item > div::after {
+	opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+
+.drop-feedback.drop-area__item > div {
+	background: #f6e6bc;
+}
+
+.dummy,
+.dummy::after {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	height: 1em;
+	border-radius: 2px;
+	background: rgba(0,0,0,0.15);
+
+	-webkit-backface-visibility: hidden;
+}
+
+.dummy {
+	width: 50%;
+}
+
+.dummy::after {
+	top: 1.5em;
+	left: 0;
+	width: 60%;
+	content: '';
+}
+
+.drop-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	opacity: 0;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	pointer-events: none;
+}
+
+.drop-area.show + .drop-overlay {
+	opacity: 1;
+}
+
+.helper {
+	position: absolute !important;
+	margin: 0;
+}
+
+@media screen and (max-width: 50em) {
+	.grid__item {
+		font-size: 1.5em;
+	}
+	.drop-area {
+		font-size: 0.6em;
+	}
+}
+
+@media screen and (max-width: 25.5em) {
+	.grid {
+		padding: 0 2em;
+	}
+	.grid__item {
+		font-size: 1em;
+	}
+}

@@ -1,0 +1,205 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,400,700);
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+	background: #2f3238;
+	color: #fff;
+	font-weight: 400;
+	font-size: 1em;
+	font-family: 'Raleway', Arial, sans-serif;
+}
+
+a {
+	color: #cc6055;
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover, a:focus {
+	color: #fff;
+}
+
+.skin-1 { background: #ccd1d5; color: #fff; }
+.skin-1 a { color: #3498db; }
+.skin-1 a:hover, .skin-1 a:focus { color: #2980b9; }
+
+.skin-2 { background: #333; color: #fff; }
+.skin-2 a { color: #edaa62; }
+.skin-2 a:hover, .skin-2 a:focus { color: #fff; }
+
+.skin-3 { background: #f1f1f1; color: #6C7A89; }
+.skin-3 a { color: #475463; }
+.skin-3 a:hover, .skin-3 a:focus { color: #6C7A89; }
+
+.skin-4 { background: #434d55; color: #eee; }
+.skin-4 a { color: #2fa0ec; }
+.skin-4 a:hover, .skin-4 a:focus { color: #eee; }
+
+.skin-5 { background: #f9f6ee; color: #aaaa9f; }
+.skin-5 a { color: #62b989; }
+.skin-5 a:hover, .skin-4 a:focus { color: #737369; }
+
+.skin-6 { background: #fff; color: #474843; }
+.skin-6 a { color: #ff7474; }
+.skin-6 a:hover, .skin-6 a:focus { color: #474843; }
+
+.content {
+	max-width: 1290px;
+	margin: 0 auto;
+	text-align: center;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Header */
+.codrops-header {
+	padding: 0 1em 3em;
+	letter-spacing: -1px;
+}
+
+.codrops-header h1 {
+	font-weight: 700;
+	font-size: 2.5em;
+	line-height: 1;
+}
+
+.codrops-header h1 span {
+	display: block;
+	font-size: 40%;
+	margin-top: 1em;
+	font-weight: 400;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	opacity: 0.3;
+	letter-spacing: 0px;
+}
+
+/* To Navigation Style */
+.codrops-top {
+	width: 100%;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 0.69em;
+	line-height: 2.2;
+}
+
+.codrops-top a {
+	display: inline-block;
+	padding: 1em 2em;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+
+.codrops-top span.right {
+	float: right;
+}
+
+.codrops-top span.right a {
+	display: block;
+	float: left;
+}
+
+.codrops-icon:before {
+	margin: 0 4px;
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-family: 'codropsicons';
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon-drop:before {
+	content: "\e001";
+}
+
+.codrops-icon-prev:before {
+	content: "\e004";
+}
+
+/* Codrops demo links */
+.codrops-demos a {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 0.3em 0;
+	margin: 0.25em 1em;
+	font-size: 0.75em;
+	display: inline-block;
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+	border-color: initial;
+}
+
+.codrops-demos a.current-demo {
+	border-bottom-color: transparent;
+}
+
+/* Related demos */
+.related {
+	text-align: center;
+	padding-top: 6em;
+}
+
+.related p {
+	font-size: 1.15em;
+}
+
+.related > a {
+	vertical-align: top;
+	width: calc(100% - 20px);
+	max-width: 340px;
+	display: inline-block;
+	text-align: center;
+	margin: 20px 10px;
+	padding: 25px;
+}
+
+.related a img {
+	max-width: 100%;
+	opacity: 0.8;
+	border-radius: 4px;
+}
+
+.related a:hover img,
+.related a:active img {
+	opacity: 1;
+}
+
+.related a h3 {
+	margin: 0;
+	padding: 0.5em 0 0.3em;
+	max-width: 300px;
+	text-align: left;
+}
+
+@media screen and (max-width: 27em) {
+	.codrops-header,
+	.related {
+		font-size: 75%;
+	}
+	.codrops-icon {
+		font-size: 1.5em;
+	}
+	.codrops-icon span {
+		display: none;
+	}
+}

@@ -1,0 +1,197 @@
+.list {
+	margin: 0 auto;
+	max-width: 50em;
+	padding: 0 1em;
+}
+
+.list__item {
+	position: relative;
+	margin: 0.25em;
+	height: 1.75em;
+	border-radius: 5px;
+	background: #66727c;
+	list-style-type: none;
+	text-align: left;
+	font-size: 2em;
+	pointer-events: none;
+}
+
+.list__item:active {
+	background: transparent
+}
+
+.drag-me {
+	top: 1em;
+	left: 1em;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 3px;
+	background: #505b65;
+	color: #6dcde9;
+	text-align: center;
+	font-size: 0.5em;
+	line-height: 1.5;
+	pointer-events: auto;
+}
+
+.drag-me::before {
+	position: absolute;
+	top: 0;
+	left: 110%;
+	width: 500%;
+	height: 100%;
+	border-radius: 3px;
+	background: #66727c;
+	content: '';
+	pointer-events: none;
+}
+
+.drag-me:hover {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.drag-me:active {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+.is-active {
+	z-index: 100
+}
+
+.is-dropped {
+	opacity: 0
+}
+
+.is-complete {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s !important;
+	transition: opacity 0.3s !important;
+}
+
+.animate {
+	-webkit-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+.drop-area {
+	position: fixed;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	height: 160px;
+	text-align: center;
+	font-size: 3em;
+	pointer-events: none;
+}
+
+.drop-area__item {
+	position: relative;
+	display: inline-block;
+	padding: 0 0.5em;
+	max-width: calc(20% - 0.3em);
+	border-radius: 10px;
+	color: #2fa0ec;
+	line-height: 120px;
+	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+	transition: transform 0.3s, color 0.3s;
+}
+
+.drop-area.show .drop-area__item.highlight {
+	color: #fff;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.drop-area__item::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -1px 0 0 -1px;
+	width: 2px;
+	height: 2px;
+	border-radius: 50%;
+	box-shadow: 0 0 1px 0 rgba(255,255,255,0.3);
+	content: '';
+}
+
+.drop-feedback.drop-area__item::before {
+	-webkit-animation: highlight 0.3s forwards;
+	animation: highlight 0.3s forwards;
+}
+/* Effect as seen on http://palettab.com/ by Tim Holman & Claudio Guglieri */
+
+@-webkit-keyframes highlight {
+	to {
+		box-shadow: 0 0 50px 100px rgba(255,255,255,0.3);
+		opacity: 0;
+	}
+}
+
+@keyframes highlight {
+	to {
+		box-shadow: 0 0 50px 100px rgba(255,255,255,0.3);
+		opacity: 0;
+	}
+}
+
+.drop-area.show .drop-area__item {
+	-webkit-transform: translate3d(0,-140px,0);
+	transform: translate3d(0,-140px,0);
+	pointer-events: auto;
+}
+
+.drop-area.show .drop-area__item:first-child,
+.drop-area.show .drop-area__item:last-child {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.drop-area.show .drop-area__item:nth-child(2),
+.drop-area.show .drop-area__item:nth-child(4) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.drop-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 79%);
+	opacity: 0;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	pointer-events: none;
+}
+
+.drop-area.show + .drop-overlay {
+	opacity: 1
+}
+
+.helper {
+	position: absolute !important;
+	margin: 0;
+}
+
+@media screen and (max-width: 50em) {
+	.list__item {
+		font-size: 1.5em;
+	}
+	.drop-area {
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 25.5em) {
+	.grid {
+		padding: 0 2em;
+	}
+	.drop-area {
+		font-size: 1.5em;
+	}
+}
